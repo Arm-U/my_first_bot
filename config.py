@@ -1,5 +1,5 @@
 CONFIG = {
-    'TOKEN': '1226927746:AAFRD6ob6Dux_YAWAiXlszLgYPYsyDXvhAI',
+    'TOKEN': 'HereShouldBeToken',
     'link': {
         'RM': 'https://realmadrid.ru/'
     },
