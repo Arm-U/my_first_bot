@@ -8,7 +8,7 @@ api_hash = CONFIG["api_hash"]
 bot = "@Arman_own_bot"
 
 
-async def test_start(client):
+async def test_start(client: TelegramClient):
     async with client.conversation(bot, timeout=10) as conv:
         await conv.send_message("/start")
         resp = await conv.get_response()
@@ -19,7 +19,7 @@ async def test_start(client):
         assert text == resp.raw_text
 
 
-async def test_help(client):
+async def test_help(client: TelegramClient):
     async with client.conversation(bot, timeout=10) as conv:
         await conv.send_message("/help")
         resp = await conv.get_response()
@@ -33,7 +33,7 @@ async def test_help(client):
         assert text == resp.raw_text
 
 
-async def test_rm(client):
+async def test_rm(client: TelegramClient):
     try:
         async with client.conversation(bot, timeout=30) as conv:
             await conv.send_message("Real Madrid")
@@ -42,7 +42,7 @@ async def test_rm(client):
         raise Exception("request is being processed for a long time")
 
 
-async def test_mipt(client):
+async def test_mipt(client: TelegramClient):
     try:
         async with client.conversation(bot, timeout=30) as conv:
             await conv.send_message("MIPT")
