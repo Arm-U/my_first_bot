@@ -19,7 +19,8 @@ class RealMadrid:
         date = self.date()
         title = self.title()
         preview = self.preview()
-        return [date, title, preview, link]
+        image = self.image()
+        return [date, title, preview, link, image]
 
     def link(self) -> str:
         last_news = self.last_news()
@@ -44,3 +45,10 @@ class RealMadrid:
         news_body = last_news.find("div", attrs={"class": "news-mini__body"})
         news_text_preview = news_body.find("div", attrs={"class": "news-mini__text-preview"})
         return news_text_preview.text.strip()
+
+    def image(self) -> str:
+        last_news = self.last_news()
+        news_image = last_news.find("div", attrs={"class": "news-mini__img-wrap"})
+        img = news_image.find("img")
+        image_link = self.url + img["data-src"]
+        return image_link
